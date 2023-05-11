@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 1
       - name: Patch Upstream Lens
         run: |
-          node update.js
+          python update.py
       - name: Build Lens
         run: |
           mkdir releasefiles
