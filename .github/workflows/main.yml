@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 1
       - name: Patch Upstream Lens
         run: |
-          python update.py
+          pip3 install pathlib && pip3 install wheel && python3 update.py
       - name: Build Lens
         run: |
           mkdir releasefiles

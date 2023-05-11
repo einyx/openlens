@@ -4,7 +4,7 @@ import platform
 from pathlib import Path
 
 # Read the package.json file
-with open('/home/alessio/code/lens/packages/open-lens/package.json', 'r') as file:
+with open('./lens/packages/open-lens/package.json', 'r') as file:
     packagejson = json.load(file)
 
 # Update packagejson
@@ -22,11 +22,11 @@ if platform.system() != "Windows":
     packagejson['scripts']['build:app'] = "electron-builder --publish onTag --x64 --arm64"
 
 # Write the updated package.json file
-with open('/home/alessio/code/lens/packages/open-lens/package.json', 'w') as file:
+with open('./lens/packages/open-lens/package.json', 'w') as file:
     json.dump(packagejson, file, indent=2)
 
 # Read and modify the .npmrc file
-npmrc_path = Path('../lens/.npmrc')
+npmrc_path = Path('./lens/.npmrc')
 npmrc = npmrc_path.read_text()
 
 npmrc = npmrc.replace('disturl "', 'disturl = "')
